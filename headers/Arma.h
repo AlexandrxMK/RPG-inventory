@@ -6,13 +6,13 @@ class Arma : public Item {
     private:
         float dano;
         float alcance;
-        int tipo_dano;
+        int tipoDano;
     public:
         float getDano();
         float getAlcance();
         int getTipoDano();
 
-        void setAlcance(float alcance);
-        void setTipoDano(int tipo_dano);
         void setDano(float dano);
+        void setAlcance(float alcance);
+        void setTipoDano(int tipoDano);
 };

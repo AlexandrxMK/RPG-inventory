@@ -7,7 +7,12 @@ class Anel : public Item {
         int buff;
         int debuff;
     public:
-        int getBuffo();
+        Anel (){};
+        Anel (int buff, int debuff){
+            this->buff = buff;
+            this->debuff = debuff;
+        }
+        int getBuff();
         int getDeBuff();
 
         void setBuff(int buff);

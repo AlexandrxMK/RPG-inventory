@@ -13,7 +13,7 @@ class Item {
         bool equipado;
     public:
         Item(){};
-        Item (std::string nome, int tipo, std::string efeito, int duracao, float preco, int quantidade); 
+        Item (int tipo, std::string nome, std::string efeito, Tempo duracao, float preco, int quantidade, bool equipado); 
 
         int getTipo();
 
