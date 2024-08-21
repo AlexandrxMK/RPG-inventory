@@ -7,6 +7,7 @@
 #include "../headers/Pocao.h"
 #include "../headers/Tempo.h"
 #include "../utils.cpp"
+#include "../Contantes.h"
 
 Inventario::Inventario() {}
 
@@ -42,3 +43,19 @@ void Inventario::Delete(int index) {
   this->itens.erase(this->itens.begin()+index, this->itens.end()+index+1);
 }
 
+int Inventario::countByType(int tipo) {
+  int count = 0;
+  for (Item i : this->itens) {
+    if (i.getTipo() == tipo) {
+      count++;
+    }
+  }
+  return count;
+}
+
+void Inventario::relatorio() {
+  std::cout << "Total de Itens: " << this->itens.size() << std::endl;
+  std::cout << "Total de Aneis: " << this->countByType(ANEL_TYPE) << std::endl;
+  std::cout << "Total de Armas: " << this->countByType(ARMA_TYPE) << std::endl;
+  std::cout << "Total de Pocoes: " << this->countByType(POCAO_TYPE) << std::endl;
+}
