@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "./headers/Tempo.h"
+#include "../headers/Tempo.h"
 
 /*#define typeof(var) _Generic( (var),\
 char: "Char",\
@@ -16,11 +16,19 @@ std::string Tempo::getTempo() {
 }
 
 void Tempo::setTempo(int tempo) {
+    //Se procurar solução para implementar
     /*if (typeof(tempo) != "Integer" || tempo < 0) {
         std::cout << "Tempo inválido" << std::endl;
         this->tempo = 0;
         return;
-    } */
+    }*/
+    
+
+    if ( tempo < 0) {
+        std::cout << "Tempo inválido!" << std::endl;
+        this->tempo = 0;
+        return;
+    }
     this->tempo = tempo;
     return;
 }
