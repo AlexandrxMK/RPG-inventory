@@ -1,18 +1,20 @@
 #pragma once
 #include <iostream>
+#include <vector>
 #include "Item.h"
 
 class Inventario {
     private:
-        Item itens[100];
+        std::vector<Item> itens;
     
     public:
+        Inventario();
         void create(Item item);
-        void readAll();
+        std::vector<Item> readAll();
         void update(Item item, int index);
+        void Delete(std::string nome);
         void Delete(int index);
-        
-        void readOne(Item item, int index);
-        void relatorio();
-
+        Item readOne(std::string nome);
+        Item readOne(int index);
+        void relatorio(); //Qtd de elementos totais, qtd elementos por classe 
 };
