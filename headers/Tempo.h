@@ -6,6 +6,8 @@ class Tempo {
         int tempo;
     
     public:
+        Tempo();
+        Tempo(int tempo);
         std::string getTempo();
         void setTempo(int tempo);
         std::string formatarTempo();

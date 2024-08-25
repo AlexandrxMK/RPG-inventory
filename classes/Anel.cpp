@@ -5,11 +5,18 @@
 Anel::Anel() {
     this->buff=0;
     this->debuff=0;
+    this->efeito = "";
 }
 
-Anel::Anel(int buff, int debuff) {
+Anel::Anel(int tipo, std::string nome, Tempo duracao, float preco, int quantidade, bool equipado, int buff, int debuff, std::string efeito) 
+: Item(tipo, nome, duracao, preco, quantidade, equipado) {
     this->buff=buff;
     this->debuff=debuff;
+    this->efeito=efeito;
+}
+
+std::string Anel::getEfeito() {
+    return this->efeito;
 }
 
 int Anel::getBuff() {
@@ -27,3 +34,8 @@ void Anel::setBuff(int buff) {
 void Anel::setDeBuff(int debuff) {
     this->debuff=debuff;
 }
+
+void Anel::setEfeito(std::string& efeito) {
+    this->efeito = efeito;
+}
+
