@@ -1,9 +1,8 @@
-#include "./headers/Item.h"
+#include "./utils.h"
+#include "./headers/Inventario.h"
 #include "Constantes.h"
-#include <vector>
 
-
-int findIndex(std::vector<Item*> itens, Item* item) {
+int utils::findIndex(std::vector<Item*> itens, Item* item) {
     for (int i=0; i < itens.size(); i++) {
         if (itens[i]->getNome() == item->getNome()) {
             return i;
@@ -12,7 +11,7 @@ int findIndex(std::vector<Item*> itens, Item* item) {
     return -1;
 }
 
-Item* createArma() {
+Item* utils::createArma() {
     std::string nome;
     float preco, dano, alcance;
     int quantidade, tipoDano, tempo;
@@ -33,7 +32,7 @@ Item* createArma() {
     std::cout << "Digite a quantidade de dano: ";
     std::cin >> dano;
 
-    std::cout << "Digite p alcance: ";
+    std::cout << "Digite o alcance: ";
     std::cin >> alcance;
     
     std::cout << "Digite o tipo de dano da arma: (0 - Magico | 1 - Fisico | 2 - Puro) ";
@@ -47,7 +46,7 @@ Item* createArma() {
 }
 
 
-Item* createAnel() {
+Item* utils::createAnel() {
     std::string nome, efeito;
     float preco, dano, alcance;
     int quantidade, buff, debuff, tempo;
@@ -82,7 +81,7 @@ Item* createAnel() {
 }
 
 
-Item* createPocao() {
+Item* utils::createPocao() {
     std::string nome, efeito;
     float preco, dano, alcance;
     int quantidade, tempo;

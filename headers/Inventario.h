@@ -6,7 +6,7 @@
 #include "Arma.h"
 #include "Pocao.h"
 #include "../Constantes.h"
-#include "../utils.cpp"
+#include "../utils.h"
 
 class Inventario {
 

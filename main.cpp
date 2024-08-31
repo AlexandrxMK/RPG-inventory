@@ -8,29 +8,32 @@ int main() {
     int comand;
 
     while(cin >> comand, comand) {
+        cin.ignore();
+
         switch(comand) {
             case 1: {
                 int tipo;
-                cout << "Digite o tipo de item(0 - Arma | 1 - Poção | 2 - Anel): ";
+                cout << "Digite o tipo de item(0 - Arma | 1 - Pocao | 2 - Anel): ";
                 cin >> tipo;
+                cin.ignore();
 
                 switch(tipo) {
                     case 0:
-                        inventario->create(createArma());
+                        inventario->create(utils::createArma());
                         break;
                     case 1:
-                        inventario->create(createPocao());
+                        inventario->create(utils::createPocao());
                         break;
                     case 2:
-                        inventario->create(createAnel());
+                        inventario->create(utils::createAnel());
                         break;
                     default:
-                        cout << "Tipo inválido!" << endl; 
+                        cout << "Tipo invalido!" << endl; 
                 }
             }
                 break;
             case 2: {
-                cout << "READ";
+
             }
                 break;
             case 3: {

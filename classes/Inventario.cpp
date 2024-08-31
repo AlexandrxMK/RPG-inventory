@@ -13,7 +13,7 @@ std::vector<Item*> Inventario::readAll() {
 }
 
 Item* Inventario::readOne(std::string nome) {
-  int index = findIndex(this->itens, readOne(nome));
+  int index = utils::findIndex(this->itens, readOne(nome));
   //if (index == -1) std::cout << "Item inexistente" << std::endl; return;
   return readOne(index);
 }
@@ -27,7 +27,7 @@ void Inventario::update(Item* item, int index) {
 }
 
 void Inventario::Delete(std::string nome) {
-  int index = findIndex(this->itens, readOne(nome));
+  int index = utils::findIndex(this->itens, readOne(nome));
   if (index == -1) std::cout << "Item inexistente" << std::endl; return;
   Delete(index);
 }
