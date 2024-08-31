@@ -19,16 +19,18 @@ O mesmo consiste na criação de um sistema <b>CRUD</b>, composto de requisitos 
 # 🏹 Instalação
 
 A instalação do <b>Inventário RPG</b> é extremamente simples:
-> [!NOTA]
 > O passo-a-passo mencionado é apenas para Windows.
 
 1. Clone o repositório (ou faça a instação do arquivo ZIP):
   ```sh
   git clone https://github.com/AlexandrxMK/RPG-inventory.git
   ```
-2. Comando de execução:
+2. Comando de compilação _(utilizando g++)_:
   ```sh
   g++ -Iheaders -o rpg main.cpp classes/*.cpp utils.cpp
+  ```
+3. Para rodar o código:
+  ```sh
   ./rpg.exe
   ```
 
