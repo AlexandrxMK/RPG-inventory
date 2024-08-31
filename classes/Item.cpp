@@ -3,10 +3,11 @@
 
 //tirar efeito e colocar em anel e pocao
 
-Item::Item(int tipo, std::string nome, std::string efeito, Tempo duracao, float preco, int quantidade, bool equipado){
+Item::Item() {}
+
+Item::Item(int tipo, std::string nome, Tempo duracao, float preco, int quantidade, bool equipado){
     this->tipo = tipo;
     this->nome = nome;
-    this->efeito = efeito;
     this->duracao = duracao;
     this->quantidade = quantidade;
     this->equipado = equipado;
@@ -24,13 +25,6 @@ std::string Item::getNome(){
 }
 void Item::setNome(std::string& nome){
     this->nome = nome;
-}
-
-std::string Item::getEfeito(){
-    return this->nome;
-}
-void Item::setEfeito(std::string& efeito){
-    this->efeito = efeito;
 }
 
 Tempo Item::getDuracao(){
@@ -60,3 +54,13 @@ bool Item::getEquipado(){
 void Item::setEquipado(bool equipado){
     this->equipado = equipado;
 }
+
+void Item::toString() {
+    std::cout << "Tipo: " << this->tipo << std::endl;
+    std::cout << "Nome: " << this->nome << std::endl;
+    std::cout << "Duracao: " << this->duracao.formatarTempo() << std::endl;
+    std::cout << "Quantidade: " << this->quantidade << std::endl;
+    std::cout << "Equipado: " << this->equipado << std::endl;
+}
+
+Item::~Item() {}

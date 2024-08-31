@@ -1,6 +1,15 @@
 #include <iostream>
 #include "../headers/Arma.h"
 
+Arma::Arma() {}
+
+Arma::Arma(int tipo, std::string nome, Tempo duracao, float preco, int quantidade, bool equipado, float dano, float alcance, int tipoDano) 
+:  Item (tipo, nome, duracao, preco, quantidade, equipado) {
+    this->dano = dano;
+    this->alcance = alcance;
+    this->tipoDano = tipoDano;
+}
+
 float Arma::getDano() {
     return dano;
 }
@@ -23,4 +32,15 @@ int Arma::getTipoDano() {
 
 void Arma::setTipoDano(int tipoDano){
     this->tipoDano = tipoDano;
+}
+
+void Arma::toString() {
+    std::cout << "Tipo: " << this->tipo << std::endl;
+    std::cout << "Nome: " << this->nome << std::endl;
+    std::cout << "Duracao: " << this->duracao.formatarTempo() << std::endl;
+    std::cout << "Quantidade: " << this->quantidade << std::endl;
+    std::cout << "Equipado: " << this->equipado << std::endl;
+    std::cout << "Dano: " << this->dano << std::endl;
+    std::cout << "Alcance: " << this->alcance << std::endl;
+    std::cout << "Tipo de Dano: " << this->tipoDano << std::endl;
 }

@@ -8,7 +8,15 @@ int: "Integer",\
 float: "Float",\
 char *: "String",\
 void *: "Pointer",\
-default: "Undefined") */
+default: "Undefined") 
+lucas passou aq
+*/
+
+Tempo::Tempo() {}
+
+Tempo::Tempo(int tempo) {
+    this->tempo = tempo;
+}
 
 std::string Tempo::getTempo() {
     std::string tempo = this->formatarTempo();

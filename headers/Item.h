@@ -1,25 +1,23 @@
 #pragma once
 #include <iostream>
-#include <tempo.h>
+#include "Tempo.h"
 
 class Item {
     protected:
         int tipo;
         std::string nome;
-        std::string efeito;
-        Tempo duracao; // Mudar para o tipo da classe TEMPO
+        Tempo duracao;
         float preco;
         int quantidade;
         bool equipado;
     public:
-        Item(){};
-        Item (int tipo, std::string nome, std::string efeito, Tempo duracao, float preco, int quantidade, bool equipado); 
+        Item();
+       
+        Item (int tipo, std::string nome, Tempo duracao, float preco, int quantidade, bool equipado); 
 
         int getTipo();
 
         std::string getNome();
-
-        std::string getEfeito();
 
         Tempo getDuracao();
 
@@ -33,8 +31,6 @@ class Item {
 
         void setNome(std::string& nome);
 
-        void setEfeito(std::string& efeito);
-
         void setDuracao(Tempo duracao);
 
         void setPreco(float preco);
@@ -42,4 +38,8 @@ class Item {
         void setQuantidade(int quantidade);
 
         void setEquipado(bool equipado);
+
+        virtual void  toString();
+
+        virtual ~Item();
 };

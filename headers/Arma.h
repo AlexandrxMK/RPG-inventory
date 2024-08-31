@@ -8,6 +8,9 @@ class Arma : public Item {
         float alcance;
         int tipoDano;
     public:
+        Arma();
+        Arma(int tipo, std::string nome, Tempo duracao, float preco, int quantidade, bool equipado, float dano, float alcance, int tipoDano);
+    
         float getDano();
         float getAlcance();
         int getTipoDano();
@@ -15,4 +18,5 @@ class Arma : public Item {
         void setDano(float dano);
         void setAlcance(float alcance);
         void setTipoDano(int tipoDano);
+        void toString();
 };
