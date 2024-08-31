@@ -35,12 +35,17 @@ void Arma::setTipoDano(int tipoDano){
 }
 
 void Arma::toString() {
-    std::cout << "Tipo: " << this->tipo << std::endl;
+    std::cout << "Tipo: " << this->tipo << " - Arma" << std::endl;
     std::cout << "Nome: " << this->nome << std::endl;
-    std::cout << "Duracao: " << this->duracao.formatarTempo() << std::endl;
+    std::cout << "Duracao (s): " << this->duracao.formatarTempo() << std::endl;
     std::cout << "Quantidade: " << this->quantidade << std::endl;
     std::cout << "Equipado: " << this->equipado << std::endl;
     std::cout << "Dano: " << this->dano << std::endl;
-    std::cout << "Alcance: " << this->alcance << std::endl;
-    std::cout << "Tipo de Dano: " << this->tipoDano << std::endl;
+    std::cout << "Alcance (m): " << this->alcance << std::endl;
+    std::cout << "Tipo de Dano: " << this->tipoDano;
+    
+    if (this->tipoDano == 0) std::cout << " - Magico" << std:: endl;
+    else if (this->tipoDano == 1) std::cout << " - Fisico" << std:: endl;
+    else std::cout << " - Puro" << std:: endl;
+
 }

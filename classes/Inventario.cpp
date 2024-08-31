@@ -9,31 +9,70 @@ void Inventario::create(Item* item) {
 }
 
 void Inventario::readAll() {
-  std::cout << "Retornando todos os itens do inventario: " << std::endl;
+  std::cout << "\nRetornando todos os itens do inventario: " << std::endl;
+  std::cout << std::endl;
   int index = 0;
   for (Item* i : this->itens) {
       std::cout << "Index: " << index << std::endl;
       i->toString();
+      std::cout << std::endl;
       index++;
   }
 }
 
-void Inventario::readOne(std::string nome) {
-    std::vector<int> v;
-    for (int i=0; i < itens.size(); i++) {
-        if (this->itens[i]->getNome().find(nome) < this->itens[i]->getNome().length()) {
-            v.push_back(i);
-        }
-    }
+// void Inventario::readOne(std::string nome) {
+//     std::vector<int> v;
+//     for (int i=0; i < itens.size(); i++) {
+//         if (this->itens[i]->getNome().find(nome) < this->itens[i]->getNome().length()) {
+//             v.push_back(i);
+//         }
+//     }
 
-    if (v.size()) {
-      for (int i : v) {
-        std::cout << "Index: " << i << std::endl;
-        this->readOne(i)->toString();
+//     if (v.size()) {
+//       for (int i : v) {
+//         std::cout << "Index: " << i << std::endl;
+//         this->readOne(i)->toString();
+//       }
+//     } else {
+//       std::cout << "Not Found" << std::endl;
+//     }
+// }
+
+bool Inventario::read(std::string nome){
+  std::vector<int> v;
+  for (int i=0; i < itens.size(); i++) {
+      if (this->itens[i]->getNome().find(nome) < this->itens[i]->getNome().length()) {
+          v.push_back(i);
       }
-    } else {
-      std::cout << "Not Found" << std::endl;
+  }
+
+  if (!v.size()){
+    std::cout << "Nome nao encontrado." << std::endl;
+    return false;
+  } 
+  if (v.size() > 1) {
+    std::cout << "Mais de 1 nome detectado: " << std::endl;
+    for (int i : v){
+      std::cout << "Nome: " << itens[i]->getNome() << " - " << i << std::endl;
     }
+  } else {
+    for (int i : v){
+      std::cout << "Index: " << i << std::endl;
+      this->readOne(i)->toString();
+    }
+  }
+  return true;
+}
+
+void Inventario::readOne(std::string nome){
+  int index;
+  if (!this->read(nome)){
+    return;
+  }
+  std::cout << std::endl << "Digite o index que deseja procurar: ";
+  std:: cin >> index;
+  this->readOne(index)->toString();
+  std::cout << "\nItem listado com sucesso!" << std::endl;
 }
 
 Item* Inventario::readOne(int index) {
@@ -46,11 +85,13 @@ void Inventario::update(Item* item, int index) {
 
 void Inventario::Delete(std::string nome) {
   int index;
-  this->readOne(nome);
+  if (!this->read(nome)){
+    return;
+  }
   std::cout << std::endl << "Digite o Index do item que deseja excluir: ";
   std::cin >> index;
   Delete(index);
-  std::cout << "Deletado com sucesso!" << std::endl;
+  std::cout << "\n Item deletado com sucesso!" << std::endl;
 }
 
 void Inventario::Delete(int index) {

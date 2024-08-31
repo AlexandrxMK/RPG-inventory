@@ -40,7 +40,7 @@ void Anel::setEfeito(std::string& efeito) {
 }
 
 void Anel::toString() {
-    std::cout << "Tipo: " << this->tipo << std::endl;
+    std::cout << "Tipo: " << this->tipo << " - Anel" << std::endl;
     std::cout << "Nome: " << this->nome << std::endl;
     std::cout << "Duracao (s): " << this->duracao.formatarTempo() << std::endl;
     std::cout << "Quantidade: " << this->quantidade << std::endl;

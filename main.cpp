@@ -54,7 +54,9 @@ int main() {
             case 2: {
                 cout << "Digite o nome do item que deseja pesquisar: ";
                 getline(cin, auxNome);
+                cout << endl;
                 inventario->readOne(auxNome);
+                // corrigir a leitura para 2 itens com nomes iguais (qual item voce quer procurar?) (corrigido)
             }
                 break;
             case 3: {
@@ -68,10 +70,14 @@ int main() {
             case 5: {
                 cout << "Digite o nome do item que deseja deletar: ";
                 getline(cin, auxNome);
+                cout << endl;
                 inventario->Delete(auxNome);
+                // bug -> se digitar o nome e ele não for encontrado, ele pula para o index e quebra (corrigido)
             }
                 break;
             case 6: {
+                cout << endl;
+                cout << "Relatorio dos itens do Inventario: \n" << endl;
                 inventario->relatorio();
             }
                 break;

@@ -11,6 +11,8 @@
 
 class Inventario {
 
+    // definir o que vai ser private e adicionar o arquivo
+
     public:
         std::vector<Item*> itens;
         Inventario();
@@ -20,6 +22,11 @@ class Inventario {
         void Delete(std::string nome);
         void Delete(int index);
         void readOne(std::string nome); 
+
+    
+        bool read(std::string nome);
+
+
         Item* readOne(int index);
         int countByType(int tipo);
         float PrecoTotal();

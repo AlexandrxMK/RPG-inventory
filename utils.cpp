@@ -11,7 +11,7 @@ Item* utils::createArma() {
     std::cout << "Digite o nome da arma: ";
     std::getline(std::cin, nome);
     
-    std::cout << "Digite a duracao: ";
+    std::cout << "Digite a duracao (s): ";
     std::cin >> tempo;
     
     std::cout << "Digite o preco da arma: ";
@@ -23,7 +23,7 @@ Item* utils::createArma() {
     std::cout << "Digite a quantidade de dano: ";
     std::cin >> dano;
 
-    std::cout << "Digite o alcance: ";
+    std::cout << "Digite o alcance (m): ";
     std::cin >> alcance;
     
     std::cout << "Digite o tipo de dano da arma: (0 - Magico | 1 - Fisico | 2 - Puro) ";
@@ -32,6 +32,8 @@ Item* utils::createArma() {
     std::cin.ignore();
     
     Item* arma = new Arma(ARMA_TYPE, nome, Tempo(tempo), preco, quantidade, false, dano, alcance, tipoDano);
+
+    std::cout << "Item criado com sucesso!" << std:: endl;
 
     return arma;
 }
@@ -46,7 +48,7 @@ Item* utils::createAnel() {
     std::cout << "Digite o nome do anel: ";
     std::getline(std::cin, nome);
     
-    std::cout << "Digite a duracao: ";
+    std::cout << "Digite a duracao (s): ";
     std::cin >> tempo;
     
     std::cout << "Digite o preco do anel: ";
@@ -68,6 +70,8 @@ Item* utils::createAnel() {
     
     Item* anel = new Anel(ANEL_TYPE, nome, Tempo(tempo), preco, quantidade, false, buff, debuff, efeito);
 
+    std::cout << "Item criado com sucesso!" << std:: endl;
+
     return anel;
 }
 
@@ -82,7 +86,7 @@ Item* utils::createPocao() {
     std::cout << "Digite o nome da pocao: ";
     std::getline(std::cin, nome);
     
-    std::cout << "Digite a duracao da pocao: ";
+    std::cout << "Digite a duracao da pocao (s): ";
     std::cin >> tempo;
     
     std::cout << "Digite o preco da pocao: ";
@@ -97,6 +101,8 @@ Item* utils::createPocao() {
     std::getline(std::cin, efeito);
     
     Item* pocao = new Pocao(POCAO_TYPE, nome, Tempo(tempo), preco, quantidade, false, efeito);
+
+    std::cout << "Item criado com sucesso!" << std:: endl;
 
     return pocao;
 }
