@@ -6,7 +6,7 @@ class Item {
     protected:
         int tipo;
         std::string nome;
-        Tempo duracao; // Mudar para o tipo da classe TEMPO
+        Tempo duracao;
         float preco;
         int quantidade;
         bool equipado;
@@ -38,6 +38,8 @@ class Item {
         void setQuantidade(int quantidade);
 
         void setEquipado(bool equipado);
+
+        virtual void  toString();
 
         virtual ~Item();
 };

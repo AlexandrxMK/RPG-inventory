@@ -8,8 +8,14 @@ void Inventario::create(Item* item) {
     this->itens.push_back(item);
 }
 
-std::vector<Item*> Inventario::readAll() {
-  return this->itens;
+void Inventario::readAll() {
+  std::cout << "Retornando todos os itens do inventario: " << std::endl;
+  int index = 0;
+  for (Item* i : this->itens) {
+      std::cout << "Index: " << index << std::endl;
+      i->toString();
+      index++;
+  }
 }
 
 std::vector<int> Inventario::readOne(std::string nome) {
@@ -50,9 +56,19 @@ int Inventario::countByType(int tipo) {
   return count;
 }
 
+
+float Inventario::PrecoTotal(){
+  float aux = 0;
+  for (int i = 0; i < itens.size(); i++){
+    aux += itens[i]->getPreco();
+  }
+  return aux;
+}
+
 void Inventario::relatorio() {
   std::cout << "Total de Itens: " << this->itens.size() << std::endl;
   std::cout << "Total de Aneis: " << this->countByType(ANEL_TYPE) << std::endl;
   std::cout << "Total de Armas: " << this->countByType(ARMA_TYPE) << std::endl;
   std::cout << "Total de Pocoes: " << this->countByType(POCAO_TYPE) << std::endl;
+  std::cout << "Preco Total dos Itens: R$" << this->PrecoTotal() << std::endl;  
 }

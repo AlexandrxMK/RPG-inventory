@@ -10,4 +10,6 @@ class Pocao : public Item {
         Pocao(int tipo, std::string nome, Tempo duracao, float preco, int quantidade, bool equipado, std::string efeito);
         std::string getEfeito();
         void setEfeito(std::string& efeito);
+
+        void toString();
 };

@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <fstream> // adicionando arquivo
 #include "Item.h"
 #include "Anel.h"
 #include "Arma.h"
@@ -14,12 +15,15 @@ class Inventario {
         std::vector<Item*> itens;
         Inventario();
         void create(Item* item);
-        std::vector<Item*> readAll();
+        void readAll();
         void update(Item *item, int index);
         void Delete(std::string nome);
         void Delete(int index);
         std::vector<int> readOne(std::string nome); 
         Item* readOne(int index);
         int countByType(int tipo);
+        float PrecoTotal();
         void relatorio(); // Qtd de elementos totais, qtd elementos por classe, preco total
+
+        
 };

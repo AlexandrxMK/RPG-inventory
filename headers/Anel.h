@@ -17,4 +17,5 @@ class Anel : public Item {
         void setBuff(int buff);
         void setDeBuff(int debuff);
         void setEfeito(std::string& efeito);
+        void toString();
 };

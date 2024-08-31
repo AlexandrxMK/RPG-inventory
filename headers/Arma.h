@@ -18,4 +18,5 @@ class Arma : public Item {
         void setDano(float dano);
         void setAlcance(float alcance);
         void setTipoDano(int tipoDano);
+        void toString();
 };

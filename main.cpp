@@ -30,19 +30,19 @@ int main() {
 
         switch(comand) {
             case 1: {
-                int tipo;
+                int type;
                 cout << "Digite o tipo de item (0 - Arma | 1 - Pocao | 2 - Anel): ";
-                cin >> tipo;
+                cin >> type;
                 cin.ignore();
 
-                switch(tipo) {
-                    case 0:
+                switch(type) {
+                    case ARMA_TYPE:
                         inventario->create(utils::createArma());
                         break;
-                    case 1:
+                    case POCAO_TYPE:
                         inventario->create(utils::createPocao());
                         break;
-                    case 2:
+                    case ANEL_TYPE:
                         inventario->create(utils::createAnel());
                         break;
                     default:
@@ -59,14 +59,17 @@ int main() {
                 vector<int> aux = inventario->readOne(auxNome);
 
                 if (aux.size()) {
-                  for (int i : aux) cout << "Index: " << i << endl << inventario->readOne(i)->getNome();
+                  for (int i : aux) {
+                    cout << "Index: " << i << endl;
+                    inventario->readOne(i)->toString();
+                  }
                 } else {
                   cout << "Not Found" << endl;
                 }
             }
                 break;
             case 3: {
-                cout << "ReadAll";
+                inventario->readAll();
             }
                 break;
             case 4: {
@@ -80,14 +83,13 @@ int main() {
                 inventario->relatorio();
             }
                 break;
-            case 0: {
-                cout << "======================" << endl;
-                cout << "Saindo do Programa." << endl;
-            }
         }
 
         printMenu();
     }
-
+    
+    cout << endl;
+    cout << "=============================" << endl;
+    cout << "Programa Encerrado." << endl;
     return 0;
 }
