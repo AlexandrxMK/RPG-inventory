@@ -18,14 +18,22 @@ void Inventario::readAll() {
   }
 }
 
-std::vector<int> Inventario::readOne(std::string nome) {
+void Inventario::readOne(std::string nome) {
     std::vector<int> v;
     for (int i=0; i < itens.size(); i++) {
         if (this->itens[i]->getNome().find(nome) < this->itens[i]->getNome().length()) {
             v.push_back(i);
         }
     }
-    return v;
+
+    if (v.size()) {
+      for (int i : v) {
+        std::cout << "Index: " << i << std::endl;
+        this->readOne(i)->toString();
+      }
+    } else {
+      std::cout << "Not Found" << std::endl;
+    }
 }
 
 Item* Inventario::readOne(int index) {
@@ -37,13 +45,16 @@ void Inventario::update(Item* item, int index) {
 }
 
 void Inventario::Delete(std::string nome) {
-  //int index = utils::findIndex(this->itens, readOne(nome));
-  //if (index == -1) std::cout << "Item inexistente" << std::endl; return;
-  //Delete(index);
+  int index;
+  this->readOne(nome);
+  std::cout << std::endl << "Digite o Index do item que deseja excluir: ";
+  std::cin >> index;
+  Delete(index);
+  std::cout << "Deletado com sucesso!" << std::endl;
 }
 
 void Inventario::Delete(int index) {
-  this->itens.erase(this->itens.begin()+index, this->itens.end()+index+1);
+  this->itens.erase(this->itens.begin()+index);
 }
 
 int Inventario::countByType(int tipo) {
@@ -59,8 +70,10 @@ int Inventario::countByType(int tipo) {
 
 float Inventario::PrecoTotal(){
   float aux = 0;
-  for (int i = 0; i < itens.size(); i++){
-    aux += itens[i]->getPreco();
+  for (auto& item : itens){
+    if (item) {
+      aux += item->getPreco() * (float) item->getQuantidade(); 
+    }
   }
   return aux;
 }
@@ -70,5 +83,5 @@ void Inventario::relatorio() {
   std::cout << "Total de Aneis: " << this->countByType(ANEL_TYPE) << std::endl;
   std::cout << "Total de Armas: " << this->countByType(ARMA_TYPE) << std::endl;
   std::cout << "Total de Pocoes: " << this->countByType(POCAO_TYPE) << std::endl;
-  std::cout << "Preco Total dos Itens: R$" << this->PrecoTotal() << std::endl;  
+  std::cout << "Preco Total dos Itens: R$" << this->PrecoTotal() << std::endl;
 }

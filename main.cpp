@@ -21,6 +21,7 @@ void printMenu() {
 
 int main() {
     Inventario *inventario = new Inventario();
+    string auxNome;
     int comand;
 
     printMenu();
@@ -51,21 +52,9 @@ int main() {
             }
                 break;
             case 2: {
-                string auxNome;
-
                 cout << "Digite o nome do item que deseja pesquisar: ";
                 getline(cin, auxNome);
-
-                vector<int> aux = inventario->readOne(auxNome);
-
-                if (aux.size()) {
-                  for (int i : aux) {
-                    cout << "Index: " << i << endl;
-                    inventario->readOne(i)->toString();
-                  }
-                } else {
-                  cout << "Not Found" << endl;
-                }
+                inventario->readOne(auxNome);
             }
                 break;
             case 3: {
@@ -77,8 +66,11 @@ int main() {
             }
                 break;
             case 5: {
-                cout << "DELETE";
+                cout << "Digite o nome do item que deseja deletar: ";
+                getline(cin, auxNome);
+                inventario->Delete(auxNome);
             }
+                break;
             case 6: {
                 inventario->relatorio();
             }
