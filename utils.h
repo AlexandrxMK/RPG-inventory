@@ -4,7 +4,6 @@
 
 class utils {
   public:
-    static int findIndex(std::vector<Item*> itens, Item* item);
     static Item* createArma();
     static Item* createAnel();
     static Item* createPocao();

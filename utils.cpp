@@ -2,15 +2,6 @@
 #include "./headers/Inventario.h"
 #include "Constantes.h"
 
-int utils::findIndex(std::vector<Item*> itens, Item* item) {
-    for (int i=0; i < itens.size(); i++) {
-        if (itens[i]->getNome() == item->getNome()) {
-            return i;
-        }
-    }
-    return -1;
-}
-
 Item* utils::createArma() {
     std::string nome;
     float preco, dano, alcance;

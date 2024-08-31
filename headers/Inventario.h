@@ -18,7 +18,7 @@ class Inventario {
         void update(Item *item, int index);
         void Delete(std::string nome);
         void Delete(int index);
-        Item* readOne(std::string nome);
+        std::vector<int> readOne(std::string nome); 
         Item* readOne(int index);
         int countByType(int tipo);
         void relatorio(); // Qtd de elementos totais, qtd elementos por classe, preco total
