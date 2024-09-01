@@ -29,8 +29,8 @@ void Item::setNome(std::string& nome){
 Tempo Item::getDuracao(){
     return this->duracao;
 }
-void Item::setDuracao(Tempo duracao){
-    this->duracao = duracao;
+void Item::setDuracao(int duracao){
+    this->duracao.setTempo(duracao);
 }
 
 float Item::getPreco(){
