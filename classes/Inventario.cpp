@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include "../headers/Inventario.h"
 
@@ -138,4 +139,70 @@ void Inventario::relatorio() {
   std::cout << "Total de Armas: " << this->countByType(ARMA_TYPE) << std::endl;
   std::cout << "Total de Pocoes: " << this->countByType(POCAO_TYPE) << std::endl;
   std::cout << "Preco Total dos Itens: R$" << this->PrecoTotal() << std::endl;
+}
+
+void Inventario::loadData() {
+    std::fstream file;
+
+    file.open("data.txt", std::ios_base::in);
+
+    if (!file.is_open()) {
+        std::cerr << "Não foi possível abrir o arquivo " << std::endl;
+        return;
+    }
+
+    while (true) {
+      int tipo, quantidade, duracao;
+      float preco;
+      bool equipado;
+      std::string nome;
+      file >> tipo;
+      file.ignore();
+      if (!file) break;
+      getline(file, nome);
+      file >> duracao;
+      file.ignore();
+      file >> preco;
+      file >> quantidade;
+      file >> equipado;
+      file.ignore();
+
+      switch(tipo) {
+        case ARMA_TYPE: {
+          float dano;
+          float alcance;
+          int tipoDano;
+
+          file >> dano;
+          file >> alcance;
+          file >> tipoDano;
+          file.ignore();
+
+          this->itens.push_back(new Arma(tipo, nome, duracao, preco, quantidade, equipado, dano, alcance, tipoDano));
+        }
+          break;
+        case POCAO_TYPE: {
+          std::string efeito;
+          std::getline(file, efeito);
+
+          this->itens.push_back(new Pocao(tipo, nome, duracao, preco, quantidade, equipado, efeito));
+        }
+          break;  
+        case ANEL_TYPE: {
+          int buff;
+          int debuff;
+          std::string efeito;
+
+          file >> buff;
+          file >> debuff;
+          file.ignore();
+          std::getline(file, efeito);
+
+          this->itens.push_back(new Anel(tipo, nome, duracao, preco, quantidade, equipado, buff, debuff, efeito));
+        }
+          break;
+      }
+    }
+
+  file.close();
 }

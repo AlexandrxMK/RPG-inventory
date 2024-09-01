@@ -24,6 +24,8 @@ int main() {
     string auxNome;
     int comand;
 
+    inventario->loadData();
+
     printMenu();
 
     while(cin >> comand, comand) {

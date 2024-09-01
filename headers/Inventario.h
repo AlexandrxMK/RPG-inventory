@@ -26,6 +26,9 @@ class Inventario {
     
         bool read(std::string nome);
 
+        void loadData();
+        void saveData();
+
 
         Item* readOne(int index);
         int countByType(int tipo);
