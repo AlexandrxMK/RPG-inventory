@@ -23,6 +23,10 @@ std::string Tempo::getTempo() {
     return tempo;
 }
 
+int Tempo::getSecTempo() {
+    return this->tempo;
+}
+
 void Tempo::setTempo(int tempo) {
     //Se procurar solução para implementar
     /*if (typeof(tempo) != "Integer" || tempo < 0) {

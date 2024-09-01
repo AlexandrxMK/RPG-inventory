@@ -21,7 +21,10 @@ void printMenu() {
 
 int main() {
     Inventario *inventario = new Inventario();
+    string auxNome;
     int comand;
+
+    inventario->loadData();
 
     printMenu();
 
@@ -51,21 +54,11 @@ int main() {
             }
                 break;
             case 2: {
-                string auxNome;
-
                 cout << "Digite o nome do item que deseja pesquisar: ";
                 getline(cin, auxNome);
-
-                vector<int> aux = inventario->readOne(auxNome);
-
-                if (aux.size()) {
-                  for (int i : aux) {
-                    cout << "Index: " << i << endl;
-                    inventario->readOne(i)->toString();
-                  }
-                } else {
-                  cout << "Not Found" << endl;
-                }
+                cout << endl;
+                inventario->readOne(auxNome);
+                // corrigir a leitura para 2 itens com nomes iguais (qual item voce quer procurar?) (corrigido)
             }
                 break;
             case 3: {
@@ -73,13 +66,31 @@ int main() {
             }
                 break;
             case 4: {
-                cout << "UPDATE";
+                cout << "Digite o nome do item que deseja Editar: ";
+                getline(cin, auxNome);
+                cout << endl;
+                //inventario->readOne(auxNome);
+                if (!inventario->read(auxNome)){
+                    break;
+                }
+                int index;
+                cout << "Digite o index do item para confirmar a edicao: ";
+                cin >> index;
+                cin.ignore();
+                inventario->update(index);
             }
                 break;
             case 5: {
-                cout << "DELETE";
+                cout << "Digite o nome do item que deseja deletar: ";
+                getline(cin, auxNome);
+                cout << endl;
+                inventario->Delete(auxNome);
+                // bug -> se digitar o nome e ele não for encontrado, ele pula para o index e quebra (corrigido)
             }
+                break;
             case 6: {
+                cout << endl;
+                cout << "Relatorio dos itens do Inventario: \n" << endl;
                 inventario->relatorio();
             }
                 break;
@@ -87,6 +98,8 @@ int main() {
 
         printMenu();
     }
+
+    inventario->saveData();
     
     cout << endl;
     cout << "=============================" << endl;

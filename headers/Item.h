@@ -31,7 +31,7 @@ class Item {
 
         void setNome(std::string& nome);
 
-        void setDuracao(Tempo duracao);
+        void setDuracao(int duracao);
 
         void setPreco(float preco);
 

@@ -1,14 +1,13 @@
 #include <iostream>
 #include "../headers/Item.h"
 
-//tirar efeito e colocar em anel e pocao
-
 Item::Item() {}
 
 Item::Item(int tipo, std::string nome, Tempo duracao, float preco, int quantidade, bool equipado){
     this->tipo = tipo;
     this->nome = nome;
     this->duracao = duracao;
+    this->preco = preco;
     this->quantidade = quantidade;
     this->equipado = equipado;
 }
@@ -30,8 +29,8 @@ void Item::setNome(std::string& nome){
 Tempo Item::getDuracao(){
     return this->duracao;
 }
-void Item::setDuracao(Tempo duracao){
-    this->duracao = duracao;
+void Item::setDuracao(int duracao){
+    this->duracao.setTempo(duracao);
 }
 
 float Item::getPreco(){
@@ -42,14 +41,14 @@ void Item::setPreco(float preco){
 }
 
 int Item::getQuantidade(){
-    return this->preco;
+    return this->quantidade;
 }
 void Item::setQuantidade(int quantidade){
     this->quantidade = quantidade;
 }
 
 bool Item::getEquipado(){
-    return this->preco;
+    return this->equipado;
 }
 void Item::setEquipado(bool equipado){
     this->equipado = equipado;
