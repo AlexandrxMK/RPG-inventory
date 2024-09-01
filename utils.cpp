@@ -185,6 +185,11 @@ void utils::updateArma(Item* item) {
     while(std::cin >> comand, comand) {
         std::cin.ignore();
 
+        if (comand > 8 || comand < 0) {
+            std::cout << "Atributo inexistente ou não editável" << std::endl;
+            continue; 
+        } 
+
         updateItem(item, comand);
 
         switch (comand) {
@@ -212,9 +217,6 @@ void utils::updateArma(Item* item) {
                 dynamic_cast<Arma*>(item)->setTipoDano(auxTipoDano);
             }
                 break;
-            default:
-                std::cout << "Atributo nao existente ou nao editavel" << std::endl;
-                break;
         }
         
         utils::menuArma();
@@ -228,6 +230,11 @@ void utils::updateAnel(Item* item) {
 
     while(std::cin >> comand, comand) {
         std::cin.ignore();
+
+        if (comand > 8 || comand < 0) {
+            std::cout << "Atributo inexistente ou não editável" << std::endl;
+            continue; 
+        } 
 
         updateItem(item, comand);
 
@@ -255,9 +262,6 @@ void utils::updateAnel(Item* item) {
                 dynamic_cast<Anel*>(item)->setEfeito(auxEfeito);
             }
                 break;
-            default:
-                std::cout << "Atributo não existente ou não editável" << std::endl;
-                break;
         }
         utils::menuAnel();
     }
@@ -271,6 +275,11 @@ void utils::updatePocao(Item* item) {
     while(std::cin >> comand, comand) {
         std::cin.ignore();
 
+        if (comand > 6 || comand < 0) {
+            std::cout << "Atributo inexistente ou não editável" << std::endl;
+            continue; 
+        } 
+
         updateItem(item, comand);
 
         switch (comand) {
@@ -280,9 +289,6 @@ void utils::updatePocao(Item* item) {
                 std::getline(std::cin, auxEfeito);
                 dynamic_cast<Pocao*>(item)->setEfeito(auxEfeito);
             }
-                break;
-            default:
-                std::cout << "Atributo não existente ou não editável" << std::endl;
                 break;
         }
         utils::menuPocao();
