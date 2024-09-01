@@ -98,6 +98,8 @@ int main() {
 
         printMenu();
     }
+
+    inventario->saveData();
     
     cout << endl;
     cout << "=============================" << endl;

@@ -9,6 +9,7 @@ class Tempo {
         Tempo();
         Tempo(int tempo);
         std::string getTempo();
+        int getSecTempo();
         void setTempo(int tempo);
         std::string formatarTempo();
 };

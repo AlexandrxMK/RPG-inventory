@@ -206,3 +206,45 @@ void Inventario::loadData() {
 
   file.close();
 }
+
+
+void Inventario::saveData() {
+    std::fstream file;
+
+    file.open("data.txt", std::ios_base::out);
+
+    if (!file.is_open()) {
+        std::cerr << "Não foi possível abrir o arquivo " << std::endl;
+        return;
+    }
+
+    for (Item* i : this->itens) {
+      file << i->getTipo() << std::endl;
+      file << i->getNome() << std::endl;
+      file << i->getDuracao().getSecTempo() << std::endl;
+      file << i->getPreco() << std::endl;
+      file << i->getQuantidade() << std::endl;
+      file << i->getEquipado() << std::endl;
+
+      switch(i->getTipo()) {
+        case ARMA_TYPE: {
+          file << dynamic_cast<Arma*>(i)->getDano() << std::endl;
+          file << dynamic_cast<Arma*>(i)->getAlcance() << std::endl;
+          file << dynamic_cast<Arma*>(i)->getTipoDano() << std::endl;;
+        }
+          break;
+        case POCAO_TYPE: {
+          file << dynamic_cast<Pocao*>(i)->getEfeito() << std::endl;
+        }
+          break;  
+        case ANEL_TYPE: {
+          file << dynamic_cast<Anel*>(i)->getBuff() << std::endl;
+          file << dynamic_cast<Anel*>(i)->getDeBuff() << std::endl;
+          file << dynamic_cast<Anel*>(i)->getEfeito() << std::endl;
+        }
+          break;
+      }
+    }
+
+  file.close();
+}
