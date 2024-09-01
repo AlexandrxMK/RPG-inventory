@@ -33,7 +33,7 @@ Item* utils::createArma() {
     
     Item* arma = new Arma(ARMA_TYPE, nome, Tempo(tempo), preco, quantidade, false, dano, alcance, tipoDano);
 
-    std::cout << "Item criado com sucesso!" << std:: endl;
+    std::cout << "\nItem criado com sucesso!" << std:: endl;
 
     return arma;
 }
@@ -70,7 +70,7 @@ Item* utils::createAnel() {
     
     Item* anel = new Anel(ANEL_TYPE, nome, Tempo(tempo), preco, quantidade, false, buff, debuff, efeito);
 
-    std::cout << "Item criado com sucesso!" << std:: endl;
+    std::cout << "\nItem criado com sucesso!" << std:: endl;
 
     return anel;
 }
@@ -102,7 +102,7 @@ Item* utils::createPocao() {
     
     Item* pocao = new Pocao(POCAO_TYPE, nome, Tempo(tempo), preco, quantidade, false, efeito);
 
-    std::cout << "Item criado com sucesso!" << std:: endl;
+    std::cout << "\nItem criado com sucesso!" << std:: endl;
 
     return pocao;
 }
@@ -113,7 +113,7 @@ void utils::menuItem() {
     std::cout << "2 - Duracao" << std::endl;
     std::cout << "3 - Preco" << std::endl;
     std::cout << "4 - Quantidade" << std::endl;
-    std::cout << "5 - Estado (Equipado/Não Equipado)" << std::endl;
+    std::cout << "5 - Estado (Equipado/Nao Equipado)" << std::endl;
 }
 
 void utils::menuArma() {
@@ -213,7 +213,7 @@ void utils::updateArma(Item* item) {
             }
                 break;
             default:
-                std::cout << "Atributo não existente ou não editável" << std::endl;
+                std::cout << "Atributo nao existente ou nao editavel" << std::endl;
                 break;
         }
         

@@ -58,7 +58,8 @@ bool Inventario::read(std::string nome){
   } else {
     for (int i : v){
       std::cout << "Index: " << i << std::endl;
-      this->readOne(i)->toString();
+      std::cout << "Tipo: " << this->readOne(i)->getTipo() << std::endl;
+      std::cout << "Nome: " << this->readOne(i)->getNome() << std::endl;
     }
   }
   return true;
@@ -70,9 +71,9 @@ void Inventario::readOne(std::string nome){
     return;
   }
   std::cout << std::endl << "Digite o index que deseja procurar: ";
-  std:: cin >> index;
+  std::cin >> index;
   this->readOne(index)->toString();
-  std::cout << "\nItem listado com sucesso!" << std::endl;
+  std::cout << "\nItem lido com sucesso!" << std::endl;
 }
 
 Item* Inventario::readOne(int index) {

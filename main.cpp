@@ -67,8 +67,10 @@ int main() {
                 cout << "Digite o nome do item que deseja Editar: ";
                 getline(cin, auxNome);
                 cout << endl;
-                inventario->readOne(auxNome);
-
+                //inventario->readOne(auxNome);
+                if (!inventario->read(auxNome)){
+                    break;
+                }
                 int index;
                 cout << "Digite o index do item para confirmar a edicao: ";
                 cin >> index;
