@@ -107,6 +107,34 @@ Item* utils::createPocao() {
     return pocao;
 }
 
+void utils::menuItem() {
+    std::cout << "Indique o atributo que deseja alterar: " << std::endl;
+    std::cout << "1 - Nome" << std::endl;
+    std::cout << "2 - Duracao" << std::endl;
+    std::cout << "3 - Preco" << std::endl;
+    std::cout << "4 - Quantidade" << std::endl;
+    std::cout << "5 - Estado (Equipado/Não Equipado)" << std::endl;
+}
+
+void utils::menuArma() {
+    menuItem();
+    std::cout << "6 - Dano" << std::endl;
+    std::cout << "7 - Alcance" << std::endl;
+    std::cout << "8 - Tipo de Dano" << std::endl;
+}
+
+void utils::menuAnel() {
+    menuItem();
+    std::cout << "6 - Buff" << std::endl;
+    std::cout << "7 - Debuff" << std::endl;
+    std::cout << "8 - Efeito" << std::endl;
+}
+
+void utils::menuPocao() {
+    menuItem();
+    std::cout << "6 - Efeito" << std::endl;
+}
+
 void utils::updateItem(Item* item, int comand) {
     switch (comand) {
         case 1: {
