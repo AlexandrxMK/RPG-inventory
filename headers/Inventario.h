@@ -18,7 +18,7 @@ class Inventario {
         Inventario();
         void create(Item* item);
         void readAll();
-        void update(Item *item, int index);
+        void update(int index);
         void Delete(std::string nome);
         void Delete(int index);
         void readOne(std::string nome); 

@@ -108,7 +108,7 @@ Item* utils::createPocao() {
 }
 
 void utils::menuItem() {
-    std::cout << "Indique o atributo que deseja alterar: " << std::endl;
+    std::cout << "Indique o atributo que deseja alterar ou 0 para finalizar a edicao: " << std::endl;
     std::cout << "1 - Nome" << std::endl;
     std::cout << "2 - Duracao" << std::endl;
     std::cout << "3 - Preco" << std::endl;
@@ -117,21 +117,21 @@ void utils::menuItem() {
 }
 
 void utils::menuArma() {
-    menuItem();
+    utils::menuItem();
     std::cout << "6 - Dano" << std::endl;
     std::cout << "7 - Alcance" << std::endl;
     std::cout << "8 - Tipo de Dano" << std::endl;
 }
 
 void utils::menuAnel() {
-    menuItem();
+    utils::menuItem();
     std::cout << "6 - Buff" << std::endl;
     std::cout << "7 - Debuff" << std::endl;
     std::cout << "8 - Efeito" << std::endl;
 }
 
 void utils::menuPocao() {
-    menuItem();
+    utils::menuItem();
     std::cout << "6 - Efeito" << std::endl;
 }
 
@@ -180,6 +180,8 @@ void utils::updateItem(Item* item, int comand) {
 void utils::updateArma(Item* item) {
     int comand;
 
+    utils::menuArma();
+
     while(std::cin >> comand, comand) {
         std::cin.ignore();
 
@@ -215,11 +217,14 @@ void utils::updateArma(Item* item) {
                 break;
         }
         
+        utils::menuArma();
     }
 }
 
 void utils::updateAnel(Item* item) {
     int comand;
+
+    utils::menuAnel();
 
     while(std::cin >> comand, comand) {
         std::cin.ignore();
@@ -254,12 +259,14 @@ void utils::updateAnel(Item* item) {
                 std::cout << "Atributo não existente ou não editável" << std::endl;
                 break;
         }
-        
+        utils::menuAnel();
     }
 }
 
 void utils::updatePocao(Item* item) {
     int comand;
+
+    utils::menuPocao();
 
     while(std::cin >> comand, comand) {
         std::cin.ignore();
@@ -278,6 +285,6 @@ void utils::updatePocao(Item* item) {
                 std::cout << "Atributo não existente ou não editável" << std::endl;
                 break;
         }
-        
+        utils::menuPocao();
     }
 }

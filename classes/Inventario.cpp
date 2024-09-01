@@ -79,8 +79,20 @@ Item* Inventario::readOne(int index) {
   return this->itens[index];
 }
 
-void Inventario::update(Item* item, int index) {
-  this->itens[index] = item;
+void Inventario::update(int index) {
+  switch(this->itens[index]->getTipo()) {
+      case ARMA_TYPE:
+          utils::updateArma(this->itens[index]);
+          break;
+      case POCAO_TYPE:
+          utils::updatePocao(this->itens[index]);
+          break;
+      case ANEL_TYPE:
+          utils::updateAnel(this->itens[index]);
+          break;
+      default:
+          std::cout << "Tipo invalido!" << std::endl; 
+  }
 }
 
 void Inventario::Delete(std::string nome) {

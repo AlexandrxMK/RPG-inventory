@@ -64,7 +64,16 @@ int main() {
             }
                 break;
             case 4: {
-                cout << "UPDATE";
+                cout << "Digite o nome do item que deseja Editar: ";
+                getline(cin, auxNome);
+                cout << endl;
+                inventario->readOne(auxNome);
+
+                int index;
+                cout << "Digite o index do item para confirmar a edicao: ";
+                cin >> index;
+                cin.ignore();
+                inventario->update(index);
             }
                 break;
             case 5: {
