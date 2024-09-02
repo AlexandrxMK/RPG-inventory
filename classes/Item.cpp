@@ -58,6 +58,7 @@ void Item::toString() {
     std::cout << "Tipo: " << this->tipo << std::endl;
     std::cout << "Nome: " << this->nome << std::endl;
     std::cout << "Duracao: " << this->duracao.formatarTempo() << std::endl;
+    std::cout << "Preco: " << this->preco << std::endl;
     std::cout << "Quantidade: " << this->quantidade << std::endl;
     std::cout << "Equipado: " << this->equipado << std::endl;
 }

@@ -2,6 +2,18 @@
 #include "./headers/Inventario.h"
 #include "Constantes.h"
 
+int fixNumber(int number) {
+    if (number > 2) {
+        std::cout << "Inválido! Definindo para tipo mais próximo..." << std::endl;
+        return 2;
+    } 
+    if (number < 0) {
+        std::cout << "Inválido! Definindo para tipo mais próximo..." << std::endl;
+        return 0;
+    }
+    return number;
+}
+
 Item* utils::createArma() {
     std::string nome;
     long double preco, dano, alcance;
@@ -29,6 +41,7 @@ Item* utils::createArma() {
     
     std::cout << "Digite o tipo de dano da arma: (0 - Magico | 1 - Fisico | 2 - Puro) ";
     std::cin >> tipoDano;
+    tipoDano = fixNumber(tipoDano);
 
     std::cin.ignore();
     
@@ -60,9 +73,11 @@ Item* utils::createAnel() {
 
     std::cout << "Digite o tipo de buff: (0 - Magico | 1 - Fisico | 2 - Puro) ";
     std::cin >> buff;
+    buff = fixNumber(buff);
     
     std::cout << "Digite o tipo de debuff: (0 - Magico | 1 - Fisico | 2 - Puro) ";
     std::cin >> debuff;
+    debuff = fixNumber(debuff);
     
     std::cin.ignore();
 
@@ -214,6 +229,7 @@ void utils::updateArma(Item* item) {
                 float auxTipoDano;
                 std::cout << "Digite o novo tipo de dano (0 - Magico | 1 - Fisico | 2 - Puro): ";
                 std::cin >> auxTipoDano;
+                auxTipoDano = fixNumber(auxTipoDano);
                 std::cin.ignore();
                 dynamic_cast<Arma*>(item)->setTipoDano(auxTipoDano);
             }
@@ -244,6 +260,7 @@ void utils::updateAnel(Item* item) {
                 int auxBuff;
                 std::cout << "Digite o novo buff (0 - Magico | 1 - Fisico | 2 - Puro): ";
                 std::cin >> auxBuff;
+                auxBuff = fixNumber(auxBuff);
                 std::cin.ignore();
                 dynamic_cast<Anel*>(item)->setBuff(auxBuff);
             }
@@ -252,6 +269,7 @@ void utils::updateAnel(Item* item) {
                 int auxDeBuff;
                 std::cout << "Digite o novo debuff (0 - Magico | 1 - Fisico | 2 - Puro): ";
                 std::cin >> auxDeBuff;
+                auxDeBuff = fixNumber(auxDeBuff);
                 std::cin.ignore();
                 dynamic_cast<Anel*>(item)->setDeBuff(auxDeBuff);
             }

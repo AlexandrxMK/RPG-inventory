@@ -133,8 +133,12 @@ long double Inventario::PrecoTotal(){
   return aux;
 }
 
+int Inventario::countTotal() {
+  return this->countByType(ANEL_TYPE) + this->countByType(ARMA_TYPE) + this->countByType(POCAO_TYPE);
+}
+
 void Inventario::relatorio() {
-  std::cout << "Total de Itens: " << this->itens.size() << std::endl;
+  std::cout << "Total de Itens: " << this->countTotal() << std::endl;
   std::cout << "Total de Aneis: " << this->countByType(ANEL_TYPE) << std::endl;
   std::cout << "Total de Armas: " << this->countByType(ARMA_TYPE) << std::endl;
   std::cout << "Total de Pocoes: " << this->countByType(POCAO_TYPE) << std::endl;
