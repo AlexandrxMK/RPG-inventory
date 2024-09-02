@@ -6,7 +6,7 @@ Pocao::Pocao() {
     this->efeito = "";
 }
 
-Pocao::Pocao(int tipo, std::string nome, Tempo duracao, float preco, int quantidade, bool equipado, std::string efeito) 
+Pocao::Pocao(int tipo, std::string nome, Tempo duracao, long double preco, long long quantidade, bool equipado, std::string efeito) 
 : Item (tipo, nome, duracao, preco, quantidade, equipado){
     this->efeito = efeito;
 }
@@ -20,7 +20,8 @@ void Pocao::setEfeito(std::string& efeito) {
 }
 
 void Pocao::toString() {
-    std::cout << "Tipo: " << this->tipo << " - Pocao" << std::endl;
+    const std::string types_[] = TYPES_; 
+    std::cout << "Tipo: " << this->tipo << " - " << types_[this->tipo] << std::endl;
     std::cout << "Nome: " << this->nome << std::endl;
     std::cout << "Duracao: " << this->duracao.formatarTempo() << std::endl;
     std::cout << "Quantidade: " << this->quantidade << std::endl;

@@ -3,13 +3,13 @@
 
 class Tempo {
     protected:
-        int tempo;
+        long long tempo;
     
     public:
         Tempo();
-        Tempo(int tempo);
+        Tempo(long long tempo);
         std::string getTempo();
-        int getSecTempo();
-        void setTempo(int tempo);
+        long long getSecTempo();
+        void setTempo(long long tempo);
         std::string formatarTempo();
 };

@@ -2,10 +2,23 @@
 #include "./headers/Inventario.h"
 #include "Constantes.h"
 
+int fixNumber(int number) {
+    if (number > 2) {
+        std::cout << "Invalido! Definindo para tipo mais proximo..." << std::endl;
+        return 2;
+    }
+    if (number < 0) {
+        std::cout << "Invalido! Definindo para tipo mais proximo..." << std::endl;
+        return 0;
+    }
+    return number;
+}
+
 Item* utils::createArma() {
     std::string nome;
-    float preco, dano, alcance;
-    int quantidade, tipoDano, tempo;
+    long double preco, dano, alcance;
+    long long quantidade, tempo;
+    int tipoDano;
 
     std::cout << std::endl;
     std::cout << "Digite o nome da arma: ";
@@ -14,7 +27,7 @@ Item* utils::createArma() {
     std::cout << "Digite a duracao (s): ";
     std::cin >> tempo;
     
-    std::cout << "Digite o preco da arma: ";
+    std::cout << "Digite o preco da arma: $";
     std::cin >> preco;
     
     std::cout << "Digite a quantidade: ";
@@ -28,6 +41,7 @@ Item* utils::createArma() {
     
     std::cout << "Digite o tipo de dano da arma: (0 - Magico | 1 - Fisico | 2 - Puro) ";
     std::cin >> tipoDano;
+    tipoDano = fixNumber(tipoDano);
 
     std::cin.ignore();
     
@@ -41,8 +55,8 @@ Item* utils::createArma() {
 
 Item* utils::createAnel() {
     std::string nome, efeito;
-    float preco, dano, alcance;
-    int quantidade, buff, debuff, tempo;
+    long double preco, dano, alcance;
+    long long quantidade, buff, debuff, tempo;
 
     std::cout << std::endl;
     std::cout << "Digite o nome do anel: ";
@@ -51,7 +65,7 @@ Item* utils::createAnel() {
     std::cout << "Digite a duracao (s): ";
     std::cin >> tempo;
     
-    std::cout << "Digite o preco do anel: ";
+    std::cout << "Digite o preco do anel: $";
     std::cin >> preco;
     
     std::cout << "Digite a quantidade: ";
@@ -59,9 +73,11 @@ Item* utils::createAnel() {
 
     std::cout << "Digite o tipo de buff: (0 - Magico | 1 - Fisico | 2 - Puro) ";
     std::cin >> buff;
+    buff = fixNumber(buff);
     
     std::cout << "Digite o tipo de debuff: (0 - Magico | 1 - Fisico | 2 - Puro) ";
     std::cin >> debuff;
+    debuff = fixNumber(debuff);
     
     std::cin.ignore();
 
@@ -78,8 +94,8 @@ Item* utils::createAnel() {
 
 Item* utils::createPocao() {
     std::string nome, efeito;
-    float preco, dano, alcance;
-    int quantidade, tempo;
+    long double preco, dano, alcance;
+    long long quantidade, tempo;
     bool equipado;
 
     std::cout << std::endl;
@@ -89,7 +105,7 @@ Item* utils::createPocao() {
     std::cout << "Digite a duracao da pocao (s): ";
     std::cin >> tempo;
     
-    std::cout << "Digite o preco da pocao: ";
+    std::cout << "Digite o preco da pocao: $";
     std::cin >> preco;
     
     std::cout << "Digite a quantidade: ";
@@ -154,7 +170,7 @@ void utils::updateItem(Item* item, int comand) {
             break;
         case 3: {
             float auxPreco;
-            std::cout << "Digite o novo preco: $ ";
+            std::cout << "Digite o novo preco: $";
             std::cin >> auxPreco;
             std::cin.ignore();
             item->setPreco(auxPreco);
@@ -186,8 +202,8 @@ void utils::updateArma(Item* item) {
         std::cin.ignore();
 
         if (comand > 8 || comand < 0) {
-            std::cout << "Atributo inexistente ou não editável" << std::endl;
-            continue; 
+            std::cout << "Atributo inexistente ou nao editavel" << std::endl;
+            return; 
         } 
 
         updateItem(item, comand);
@@ -213,6 +229,7 @@ void utils::updateArma(Item* item) {
                 float auxTipoDano;
                 std::cout << "Digite o novo tipo de dano (0 - Magico | 1 - Fisico | 2 - Puro): ";
                 std::cin >> auxTipoDano;
+                auxTipoDano = fixNumber(auxTipoDano);
                 std::cin.ignore();
                 dynamic_cast<Arma*>(item)->setTipoDano(auxTipoDano);
             }
@@ -232,8 +249,8 @@ void utils::updateAnel(Item* item) {
         std::cin.ignore();
 
         if (comand > 8 || comand < 0) {
-            std::cout << "Atributo inexistente ou não editável" << std::endl;
-            continue; 
+            std::cout << "Atributo inexistente ou nao editavel" << std::endl;
+            return; 
         } 
 
         updateItem(item, comand);
@@ -243,6 +260,7 @@ void utils::updateAnel(Item* item) {
                 int auxBuff;
                 std::cout << "Digite o novo buff (0 - Magico | 1 - Fisico | 2 - Puro): ";
                 std::cin >> auxBuff;
+                auxBuff = fixNumber(auxBuff);
                 std::cin.ignore();
                 dynamic_cast<Anel*>(item)->setBuff(auxBuff);
             }
@@ -251,6 +269,7 @@ void utils::updateAnel(Item* item) {
                 int auxDeBuff;
                 std::cout << "Digite o novo debuff (0 - Magico | 1 - Fisico | 2 - Puro): ";
                 std::cin >> auxDeBuff;
+                auxDeBuff = fixNumber(auxDeBuff);
                 std::cin.ignore();
                 dynamic_cast<Anel*>(item)->setDeBuff(auxDeBuff);
             }
@@ -276,8 +295,8 @@ void utils::updatePocao(Item* item) {
         std::cin.ignore();
 
         if (comand > 6 || comand < 0) {
-            std::cout << "Atributo inexistente ou não editável" << std::endl;
-            continue; 
+            std::cout << "Atributo inexistente ou nao editavel" << std::endl;
+            return;
         } 
 
         updateItem(item, comand);

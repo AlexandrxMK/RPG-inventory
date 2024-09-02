@@ -4,19 +4,19 @@
 
 class Arma : public Item {
     private:
-        float dano;
-        float alcance;
+        long double dano;
+        long double alcance;
         int tipoDano;
     public:
         Arma();
-        Arma(int tipo, std::string nome, Tempo duracao, float preco, int quantidade, bool equipado, float dano, float alcance, int tipoDano);
+        Arma(int tipo, std::string nome, Tempo duracao, long double preco, long long quantidade, bool equipado, long double dano, long double alcance, int tipoDano);
     
-        float getDano();
-        float getAlcance();
+        long double getDano();
+        long double getAlcance();
         int getTipoDano();
 
-        void setDano(float dano);
-        void setAlcance(float alcance);
+        void setDano(long double dano);
+        void setAlcance(long double alcance);
         void setTipoDano(int tipoDano);
         void toString();
 };

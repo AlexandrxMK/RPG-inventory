@@ -32,6 +32,7 @@ class Inventario {
 
         Item* readOne(int index);
         int countByType(int tipo);
-        float PrecoTotal();
+        int countTotal();
+        long double PrecoTotal();
         void relatorio(); // Qtd de elementos totais, qtd elementos por classe, preco total     
 };

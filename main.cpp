@@ -58,7 +58,6 @@ int main() {
                 getline(cin, auxNome);
                 cout << endl;
                 inventario->readOne(auxNome);
-                // corrigir a leitura para 2 itens com nomes iguais (qual item voce quer procurar?) (corrigido)
             }
                 break;
             case 3: {
@@ -69,13 +68,13 @@ int main() {
                 cout << "Digite o nome do item que deseja Editar: ";
                 getline(cin, auxNome);
                 cout << endl;
-                //inventario->readOne(auxNome);
                 if (!inventario->read(auxNome)){
                     break;
                 }
                 int index;
-                cout << "Digite o index do item para confirmar a edicao: ";
+                cout << "Digite o indice do item para confirmar a edicao: ";
                 cin >> index;
+                if (index > inventario->itens.size()-1 || index < 0) { cout << "Indice invalido!" << endl; break; } 
                 cin.ignore();
                 inventario->update(index);
             }
@@ -85,7 +84,6 @@ int main() {
                 getline(cin, auxNome);
                 cout << endl;
                 inventario->Delete(auxNome);
-                // bug -> se digitar o nome e ele não for encontrado, ele pula para o index e quebra (corrigido)
             }
                 break;
             case 6: {

@@ -1,19 +1,20 @@
 #pragma once
 #include <iostream>
 #include "Tempo.h"
+#include "../Constantes.h"
 
 class Item {
     protected:
         int tipo;
         std::string nome;
         Tempo duracao;
-        float preco;
-        int quantidade;
+        long long preco;
+        long long quantidade;
         bool equipado;
     public:
         Item();
        
-        Item (int tipo, std::string nome, Tempo duracao, float preco, int quantidade, bool equipado); 
+        Item (int tipo, std::string nome, Tempo duracao, long double preco, long long quantidade, bool equipado); 
 
         int getTipo();
 
@@ -21,9 +22,9 @@ class Item {
 
         Tempo getDuracao();
 
-        float getPreco();
+        long double getPreco();
 
-        int getQuantidade();
+        long long getQuantidade();
 
         bool getEquipado();
 
@@ -31,11 +32,11 @@ class Item {
 
         void setNome(std::string& nome);
 
-        void setDuracao(int duracao);
+        void setDuracao(long long duracao);
 
-        void setPreco(float preco);
+        void setPreco(long double preco);
 
-        void setQuantidade(int quantidade);
+        void setQuantidade(long long quantidade);
 
         void setEquipado(bool equipado);
 

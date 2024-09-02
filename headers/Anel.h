@@ -4,18 +4,18 @@
 
 class Anel : public Item {
     private:
-        int buff;
-        int debuff;
+        long long buff;
+        long long debuff;
         std::string efeito;
     public:
         Anel ();
-        Anel (int tipo, std::string nome, Tempo duracao, float preco, int quantidade, bool equipado, int buff, int debuff, std::string efeito);
-        int getBuff();
-        int getDeBuff();
+        Anel (int tipo, std::string nome, Tempo duracao, long double preco, long long quantidade, bool equipado, long long buff, long long debuff, std::string efeito);
+        long long getBuff();
+        long long getDeBuff();
         std::string getEfeito();
 
-        void setBuff(int buff);
-        void setDeBuff(int debuff);
+        void setBuff(long long buff);
+        void setDeBuff(long long debuff);
         void setEfeito(std::string& efeito);
         void toString();
 };
