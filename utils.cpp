@@ -6,7 +6,7 @@ int fixNumber(int number) {
     if (number > 2) {
         std::cout << "Inválido! Definindo para tipo mais próximo..." << std::endl;
         return 2;
-    } 
+    }
     if (number < 0) {
         std::cout << "Inválido! Definindo para tipo mais próximo..." << std::endl;
         return 0;

@@ -37,9 +37,7 @@ void Anel::setDeBuff(long long debuff) {
 
 void Anel::setEfeito(std::string& efeito) {
     this->efeito = efeito;
-}
-
-void Anel::toString() {
+}void Anel::toString() {
     std::cout << "Tipo: " << this->tipo << " - Anel" << std::endl;
     std::cout << "Nome: " << this->nome << std::endl;
     std::cout << "Duracao (s): " << this->duracao.formatarTempo() << std::endl;

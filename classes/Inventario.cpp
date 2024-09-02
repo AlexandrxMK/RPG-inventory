@@ -14,7 +14,7 @@ void Inventario::readAll() {
   std::cout << std::endl;
   int index = 0;
   for (Item* i : this->itens) {
-      std::cout << "Index: " << index << std::endl;
+      std::cout << "Índice: " << index << std::endl;
       i->toString();
       std::cout << std::endl;
       index++;
@@ -58,7 +58,7 @@ bool Inventario::read(std::string nome){
     }
   } else {
     for (int i : v){
-      std::cout << "Index: " << i << std::endl;
+      std::cout << "Índice: " << i << std::endl;
       std::cout << "Tipo: " << this->readOne(i)->getTipo() << std::endl;
       std::cout << "Nome: " << this->readOne(i)->getNome() << std::endl;
     }
@@ -71,8 +71,9 @@ void Inventario::readOne(std::string nome){
   if (!this->read(nome)){
     return;
   }
-  std::cout << std::endl << "Digite o index que deseja procurar: ";
+  std::cout << std::endl << "Digite o índice que deseja procurar: ";
   std::cin >> index;
+  if (index > this->itens.size()-1 || index < 0) { std::cout << "Índice inválido!" << std::endl; return; }
   this->readOne(index)->toString();
   std::cout << "\nItem lido com sucesso!" << std::endl;
 }
@@ -102,8 +103,9 @@ void Inventario::Delete(std::string nome) {
   if (!this->read(nome)){
     return;
   }
-  std::cout << std::endl << "Digite o Index do item que deseja excluir: ";
+  std::cout << std::endl << "Digite o índice do item que deseja excluir: ";
   std::cin >> index;
+  if (index > this->itens.size()-1 || index < 0) { std::cout << "Índice inválido!" << std::endl; return; } 
   Delete(index);
   std::cout << "\n Item deletado com sucesso!" << std::endl;
 }

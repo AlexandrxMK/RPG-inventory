@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Tempo.h"
+#include "../Constantes.h"
 
 class Item {
     protected:

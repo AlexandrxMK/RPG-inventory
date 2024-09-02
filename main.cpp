@@ -74,8 +74,9 @@ int main() {
                     break;
                 }
                 int index;
-                cout << "Digite o index do item para confirmar a edicao: ";
+                cout << "Digite o índice do item para confirmar a edicao: ";
                 cin >> index;
+                if (index > inventario->itens.size()-1 || index < 0) { cout << "Índice inválido!" << endl; continue; } 
                 cin.ignore();
                 inventario->update(index);
             }
