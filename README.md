@@ -2,9 +2,9 @@
 
 # 🧙🏻‍♂ Equipe
 
-- [Alexandre Guedes](https://github.com/AlexandrxMK)
-- [Arthur Maximus](https://github.com/Maximusthr)
-- [Eliabe Rodrigues](https://github.com/EliabeRP)
+- 💍 [Alexandre Guedes](https://github.com/AlexandrxMK)
+- 🗡️ [Arthur Maximus](https://github.com/Maximusthr)
+- ⚗️ [Eliabe Rodrigues](https://github.com/EliabeRP)
 
 # 🔮 Sobre o Projeto
 
@@ -16,12 +16,21 @@ O mesmo consiste na criação de um sistema <b>CRUD</b>, composto de requisitos 
 4. Gerar relatório das informações
 5. Salvar os dados em arquivo
 
+# 📜 Funcionalidades
+
+O projeto possui 6 tipos de funcionalides, sendo elas:
+1. Criação de itens
+2. Leitura de um item individual
+3. Leitura de todos os itens
+4. Atualização dos itens, podendo ser qualquer tipo de atributo
+5. Relatório do Inventário
+6. Saída do programa
+
 # 🏹 Instalação
 
 A instalação do <b>Inventário RPG</b> é extremamente simples:
-> O passo-a-passo mencionado é apenas para Windows.
 
-1. Clone o repositório (ou faça a instação do arquivo ZIP):
+1. Clone o repositório (ou faça a instalação do arquivo ZIP):
   ```sh
   git clone https://github.com/AlexandrxMK/RPG-inventory.git
   ```
@@ -30,13 +39,15 @@ A instalação do <b>Inventário RPG</b> é extremamente simples:
   g++ -Iheaders -o rpg main.cpp classes/*.cpp utils.cpp
   ```
 3. Para rodar o código:
+  > O passo a seguir é apenas para Windows.
   ```sh
   ./rpg.exe
   ```
+  > O passo a seguir é apenas para Linux.
+  ```
+  ./rpg.out
+  ```
 
-# 📜 Diagrama de Classes
+# ☄️ Diagrama de Classes
 
-<img src="imagem.png" alt="Trocar">
-
-
-
+<img src="Diagrama_de_Classes.png" alt="Diagrama de Classes">
