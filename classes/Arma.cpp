@@ -3,26 +3,26 @@
 
 Arma::Arma() {}
 
-Arma::Arma(int tipo, std::string nome, Tempo duracao, float preco, int quantidade, bool equipado, float dano, float alcance, int tipoDano) 
+Arma::Arma(int tipo, std::string nome, Tempo duracao, long double preco, long long quantidade, bool equipado, long double dano, long double alcance, int tipoDano) 
 :  Item (tipo, nome, duracao, preco, quantidade, equipado) {
     this->dano = dano;
     this->alcance = alcance;
     this->tipoDano = tipoDano;
 }
 
-float Arma::getDano() {
+long double Arma::getDano() {
     return dano;
 }
 
-void Arma::setDano(float dano) {
+void Arma::setDano(long double dano) {
     this->dano = dano;
 }
 
-float Arma::getAlcance() {
+long double Arma::getAlcance() {
     return alcance;
 }
 
-void Arma::setAlcance(float alcance){
+void Arma::setAlcance(long double alcance){
     this->alcance = alcance;
 }
 

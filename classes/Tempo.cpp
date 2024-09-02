@@ -14,7 +14,7 @@ lucas passou aq
 
 Tempo::Tempo() {}
 
-Tempo::Tempo(int tempo) {
+Tempo::Tempo(long long tempo) {
     this->tempo = tempo;
 }
 
@@ -23,11 +23,11 @@ std::string Tempo::getTempo() {
     return tempo;
 }
 
-int Tempo::getSecTempo() {
+long long Tempo::getSecTempo() {
     return this->tempo;
 }
 
-void Tempo::setTempo(int tempo) {
+void Tempo::setTempo(long long tempo) {
     //Se procurar solução para implementar
     /*if (typeof(tempo) != "Integer" || tempo < 0) {
         std::cout << "Tempo inválido" << std::endl;

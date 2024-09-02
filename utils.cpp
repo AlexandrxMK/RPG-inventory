@@ -4,8 +4,9 @@
 
 Item* utils::createArma() {
     std::string nome;
-    float preco, dano, alcance;
-    int quantidade, tipoDano, tempo;
+    long double preco, dano, alcance;
+    long long quantidade, tempo;
+    int tipoDano;
 
     std::cout << std::endl;
     std::cout << "Digite o nome da arma: ";
@@ -41,8 +42,8 @@ Item* utils::createArma() {
 
 Item* utils::createAnel() {
     std::string nome, efeito;
-    float preco, dano, alcance;
-    int quantidade, buff, debuff, tempo;
+    long double preco, dano, alcance;
+    long long quantidade, buff, debuff, tempo;
 
     std::cout << std::endl;
     std::cout << "Digite o nome do anel: ";
@@ -78,8 +79,8 @@ Item* utils::createAnel() {
 
 Item* utils::createPocao() {
     std::string nome, efeito;
-    float preco, dano, alcance;
-    int quantidade, tempo;
+    long double preco, dano, alcance;
+    long long quantidade, tempo;
     bool equipado;
 
     std::cout << std::endl;

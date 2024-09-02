@@ -7,7 +7,7 @@ class Pocao : public Item {
         std::string efeito;
     public:
         Pocao();
-        Pocao(int tipo, std::string nome, Tempo duracao, float preco, int quantidade, bool equipado, std::string efeito);
+        Pocao(int tipo, std::string nome, Tempo duracao, long double preco, long long quantidade, bool equipado, std::string efeito);
         std::string getEfeito();
         void setEfeito(std::string& efeito);
 

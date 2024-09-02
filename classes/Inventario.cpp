@@ -116,18 +116,18 @@ int Inventario::countByType(int tipo) {
   int count = 0;
   for (Item* i : this->itens) {
     if (i->getTipo() == tipo) {
-      count++;
+      count += i->getQuantidade();
     }
   }
   return count;
 }
 
 
-float Inventario::PrecoTotal(){
-  float aux = 0;
+long double Inventario::PrecoTotal(){
+  long long aux = 0;
   for (auto& item : itens){
     if (item) {
-      aux += item->getPreco() * (float) item->getQuantidade(); 
+      aux += item->getPreco() * (long double) item->getQuantidade(); 
     }
   }
   return aux;
@@ -152,8 +152,9 @@ void Inventario::loadData() {
     }
 
     while (true) {
-      int tipo, quantidade, duracao;
-      float preco;
+      int tipo;
+      long long quantidade, duracao;
+      long double preco;
       bool equipado;
       std::string nome;
       file >> tipo;
@@ -169,8 +170,8 @@ void Inventario::loadData() {
 
       switch(tipo) {
         case ARMA_TYPE: {
-          float dano;
-          float alcance;
+          long long dano;
+          long long alcance;
           int tipoDano;
 
           file >> dano;
@@ -189,8 +190,8 @@ void Inventario::loadData() {
         }
           break;  
         case ANEL_TYPE: {
-          int buff;
-          int debuff;
+          long long buff;
+          long long debuff;
           std::string efeito;
 
           file >> buff;
