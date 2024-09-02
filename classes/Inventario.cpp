@@ -14,30 +14,12 @@ void Inventario::readAll() {
   std::cout << std::endl;
   int index = 0;
   for (Item* i : this->itens) {
-      std::cout << "Índice: " << index << std::endl;
+      std::cout << "\nIndice: " << index << std::endl;
       i->toString();
       std::cout << std::endl;
       index++;
   }
 }
-
-// void Inventario::readOne(std::string nome) {
-//     std::vector<int> v;
-//     for (int i=0; i < itens.size(); i++) {
-//         if (this->itens[i]->getNome().find(nome) < this->itens[i]->getNome().length()) {
-//             v.push_back(i);
-//         }
-//     }
-
-//     if (v.size()) {
-//       for (int i : v) {
-//         std::cout << "Index: " << i << std::endl;
-//         this->readOne(i)->toString();
-//       }
-//     } else {
-//       std::cout << "Not Found" << std::endl;
-//     }
-// }
 
 bool Inventario::read(std::string nome){
   std::vector<int> v;
@@ -58,7 +40,7 @@ bool Inventario::read(std::string nome){
     }
   } else {
     for (int i : v){
-      std::cout << "Índice: " << i << std::endl;
+      std::cout << "Indice: " << i << std::endl;
       std::cout << "Tipo: " << this->readOne(i)->getTipo() << std::endl;
       std::cout << "Nome: " << this->readOne(i)->getNome() << std::endl;
     }
@@ -71,9 +53,9 @@ void Inventario::readOne(std::string nome){
   if (!this->read(nome)){
     return;
   }
-  std::cout << std::endl << "Digite o índice que deseja procurar: ";
+  std::cout << std::endl << "Digite o indice que deseja procurar: ";
   std::cin >> index;
-  if (index > this->itens.size()-1 || index < 0) { std::cout << "Índice inválido!" << std::endl; return; }
+  if (index > this->itens.size()-1 || index < 0) { std::cout << "Indice invalido!" << std::endl; return; }
   this->readOne(index)->toString();
   std::cout << "\nItem lido com sucesso!" << std::endl;
 }
@@ -103,9 +85,9 @@ void Inventario::Delete(std::string nome) {
   if (!this->read(nome)){
     return;
   }
-  std::cout << std::endl << "Digite o índice do item que deseja excluir: ";
+  std::cout << std::endl << "Digite o indice do item que deseja excluir: ";
   std::cin >> index;
-  if (index > this->itens.size()-1 || index < 0) { std::cout << "Índice inválido!" << std::endl; return; } 
+  if (index > this->itens.size()-1 || index < 0) { std::cout << "Indice invalido!" << std::endl; return; } 
   Delete(index);
   std::cout << "\n Item deletado com sucesso!" << std::endl;
 }
@@ -144,7 +126,7 @@ void Inventario::relatorio() {
   std::cout << "Total de Aneis: " << this->countByType(ANEL_TYPE) << std::endl;
   std::cout << "Total de Armas: " << this->countByType(ARMA_TYPE) << std::endl;
   std::cout << "Total de Pocoes: " << this->countByType(POCAO_TYPE) << std::endl;
-  std::cout << "Preco Total dos Itens: R$" << this->PrecoTotal() << std::endl;
+  std::cout << "Preco Total dos Itens: $" << this->PrecoTotal() << std::endl;
 }
 
 void Inventario::loadData() {
@@ -153,7 +135,7 @@ void Inventario::loadData() {
     file.open("data.txt", std::ios_base::in);
 
     if (!file.is_open()) {
-        std::cerr << "Não foi possível abrir o arquivo " << std::endl;
+        std::cerr << "Nao foi possivel abrir o arquivo " << std::endl;
         return;
     }
 
@@ -221,7 +203,7 @@ void Inventario::saveData() {
     file.open("data.txt", std::ios_base::out);
 
     if (!file.is_open()) {
-        std::cerr << "Não foi possível abrir o arquivo " << std::endl;
+        std::cerr << "Nao foi possivel abrir o arquivo " << std::endl;
         return;
     }
 

@@ -36,7 +36,8 @@ void Arma::setTipoDano(int tipoDano){
 
 void Arma::toString() {
     const std::string types[] = TYPES_D;
-    std::cout << "Tipo: " << this->tipo << " - Arma" << std::endl;
+    const std::string types_[] = TYPES_;
+    std::cout << "Tipo: " << this->tipo << " - " << types_[this->tipo] << std::endl;
     std::cout << "Nome: " << this->nome << std::endl;
     std::cout << "Duracao (s): " << this->duracao.formatarTempo() << std::endl;
     std::cout << "Quantidade: " << this->quantidade << std::endl;
@@ -44,5 +45,4 @@ void Arma::toString() {
     std::cout << "Dano: " << this->dano << std::endl;
     std::cout << "Alcance (m): " << this->alcance << std::endl;
     std::cout << "Tipo de Dano: " << types[this->tipoDano];
-
 }

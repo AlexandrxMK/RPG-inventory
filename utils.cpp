@@ -4,11 +4,11 @@
 
 int fixNumber(int number) {
     if (number > 2) {
-        std::cout << "Inválido! Definindo para tipo mais próximo..." << std::endl;
+        std::cout << "Invalido! Definindo para tipo mais proximo..." << std::endl;
         return 2;
     }
     if (number < 0) {
-        std::cout << "Inválido! Definindo para tipo mais próximo..." << std::endl;
+        std::cout << "Invalido! Definindo para tipo mais proximo..." << std::endl;
         return 0;
     }
     return number;
@@ -27,7 +27,7 @@ Item* utils::createArma() {
     std::cout << "Digite a duracao (s): ";
     std::cin >> tempo;
     
-    std::cout << "Digite o preco da arma: ";
+    std::cout << "Digite o preco da arma: $";
     std::cin >> preco;
     
     std::cout << "Digite a quantidade: ";
@@ -65,7 +65,7 @@ Item* utils::createAnel() {
     std::cout << "Digite a duracao (s): ";
     std::cin >> tempo;
     
-    std::cout << "Digite o preco do anel: ";
+    std::cout << "Digite o preco do anel: $";
     std::cin >> preco;
     
     std::cout << "Digite a quantidade: ";
@@ -105,7 +105,7 @@ Item* utils::createPocao() {
     std::cout << "Digite a duracao da pocao (s): ";
     std::cin >> tempo;
     
-    std::cout << "Digite o preco da pocao: ";
+    std::cout << "Digite o preco da pocao: $";
     std::cin >> preco;
     
     std::cout << "Digite a quantidade: ";
@@ -170,7 +170,7 @@ void utils::updateItem(Item* item, int comand) {
             break;
         case 3: {
             float auxPreco;
-            std::cout << "Digite o novo preco: $ ";
+            std::cout << "Digite o novo preco: $";
             std::cin >> auxPreco;
             std::cin.ignore();
             item->setPreco(auxPreco);
@@ -202,8 +202,8 @@ void utils::updateArma(Item* item) {
         std::cin.ignore();
 
         if (comand > 8 || comand < 0) {
-            std::cout << "Atributo inexistente ou não editável" << std::endl;
-            continue; 
+            std::cout << "Atributo inexistente ou nao editavel" << std::endl;
+            return; 
         } 
 
         updateItem(item, comand);
@@ -249,8 +249,8 @@ void utils::updateAnel(Item* item) {
         std::cin.ignore();
 
         if (comand > 8 || comand < 0) {
-            std::cout << "Atributo inexistente ou não editável" << std::endl;
-            continue; 
+            std::cout << "Atributo inexistente ou nao editavel" << std::endl;
+            return; 
         } 
 
         updateItem(item, comand);
@@ -295,8 +295,8 @@ void utils::updatePocao(Item* item) {
         std::cin.ignore();
 
         if (comand > 6 || comand < 0) {
-            std::cout << "Atributo inexistente ou não editável" << std::endl;
-            continue; 
+            std::cout << "Atributo inexistente ou nao editavel" << std::endl;
+            return;
         } 
 
         updateItem(item, comand);
