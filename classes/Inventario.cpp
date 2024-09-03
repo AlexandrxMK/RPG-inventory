@@ -40,8 +40,9 @@ bool Inventario::read(std::string nome){
     }
   } else {
     for (int i : v){
+      const std::string types[] = TYPES_D;
       std::cout << "Indice: " << i << std::endl;
-      std::cout << "Tipo: " << this->readOne(i)->getTipo() << std::endl;
+      std::cout << "Tipo: " << types[this->readOne(i)->getTipo()] << std::endl;
       std::cout << "Nome: " << this->readOne(i)->getNome() << std::endl;
     }
   }

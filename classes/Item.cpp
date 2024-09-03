@@ -55,7 +55,8 @@ void Item::setEquipado(bool equipado){
 }
 
 void Item::toString() {
-    std::cout << "Tipo: " << this->tipo << std::endl;
+    const std::string types[] = TYPES_D;
+    std::cout << "Tipo: " << this->tipo << " - " <<  types[this->tipo] << std::endl;
     std::cout << "Nome: " << this->nome << std::endl;
     std::cout << "Duracao: " << this->duracao.formatarTempo() << std::endl;
     std::cout << "Preco: " << this->preco << std::endl;
